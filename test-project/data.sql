@@ -1,7 +1,7 @@
 -- Insert values into user (all of the project members)
 INSERT INTO User (UserID, Username) VALUES
 (1, 'DevenAllen'),
-(2, 'PreetamJain');
+(2, 'PreetamJain'),
 (3, 'SanjanaSatish'),
 (4, 'ArjunGupta');
 
