@@ -19,8 +19,8 @@ INSERT INTO Cast (ActorName, MovieID) VALUES
 ('Hugo Weaving', 100),
 ('Samuel L. Jackson', 100),
 ('Adam Sandler', 101),
-('Salma Hayak', 101);
-('Kevin James', 101);
+('Salma Hayak', 101),
+('Kevin James', 101),
 ('Margot Robbie', 102),
 ('Ryan Gosling', 102),
 ('Issa Rae', 102);
