@@ -12,4 +12,22 @@ public class Review {
         this.movieID = movieID;
         this.userID = userID;
     }
+
+    public Review(int stars, int movieID, int userID) {
+        this.stars = stars;
+        this.movieID = movieID;
+        this.userID = userID;
+    }
+
+    public int getStars() {
+        return this.stars;
+    }
+
+    public int getMovieID() {
+        return this.movieID;
+    }
+
+    public int getUserID() {
+        return this.userID;
+    }
 }

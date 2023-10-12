@@ -75,5 +75,20 @@ public class App implements CommandLineRunner {
             System.out.println("User: " + resultSet.getString("Username"));
             System.out.println(resultSet.getInt("StarCount") + " Stars");
         }
+
+        //Adding a review, user, and movie to the database
+        User ronaldoUser = new User(5, "CristianoRonaldo");
+        Movie harryPotter = new Movie(103, "https://m.media-amazon.com/images/M/MV5BNmQ0ODBhMjUtNDRhOC00MGQzLTk5MTAtZDliODg5NmU5MjZhXkEyXkFqcGdeQXVyNDUyOTg3Njg@._V1_.jpg", 
+                                        "Harry Potter and the Sorcerer's Stone", 2001, 152); 
+        Cast harryPotterCast = new Cast("Daniel Radcliffe", 103);
+        Review harryPotterReview = new Review(5, 103, 5);
+        int stars = harryPotterReview.getStars();
+        int movieID = harryPotterReview.getMovieID();
+        int userID = harryPotterReview.getUserID();
+
+        sql = "INSERT INTO User VALUES(" + movieID + "," + userID + ")";
+        sql = "INSERT INTO Movie VALUES(" + stars + "," + movieID + "," + userID + ")";
+        sql = "INSERT INTO Cast VALUES(" + stars + "," + movieID + "," + userID + ")";
+        sql = "INSERT INTO Review VALUES(" + stars + "," + movieID + "," + userID + ")";
     }
 }

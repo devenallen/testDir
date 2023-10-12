@@ -10,4 +10,10 @@ public class Cast {
         this.actorNames = actorNames;
         this.movieID = movieID;
     }
+
+    public Cast(String actorNames, int movieID) {
+        this.actorNames = actorNames;
+        this.movieID = movieID;
+    }
+
 }
