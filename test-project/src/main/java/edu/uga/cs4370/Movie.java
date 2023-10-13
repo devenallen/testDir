@@ -5,10 +5,12 @@ public class Movie {
     public int id;
     public int year;
     public int length;
+    public String url;
 
-    Movie(String title, int id, int year, int length) {
+    Movie(String title, String url, int id, int year, int length) {
         this.name = title;
         this.id = id;
+        this.url = url;
         this.year = year;
         this.length = length;
     }

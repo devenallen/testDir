@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Movie Homepage</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 20px;
+        }
+        h1 {
+            margin: 0;
+        }
+        nav {
+            background-color: #444;
+            text-align: center;
+            padding: 10px;
+        }
+        nav a {
+            text-decoration: none;
+            color: #fff;
+            margin: 10px;
+        }
+        main {
+            padding: 20px;
+        }
+        .movie-poster {
+            max-width: 300px;
+            display: block;
+            margin: 0 auto;
+        }
+        p {
+            margin: auto;
+        }
+        img {
+            width: 50%;
+            height: 80%;
+            margin: auto;
+        }
+        .mainDiv {
+            display: flex;
+        }
+        .center {
+            margin: auto;
+            border-radius: 20%;
+            border-color: black;
+        }
+    </style>
+</head>
+<body>
+<div><h1>Movies</h1></div>
+<div class="mainDiv">
+    {{#movies}}
+    <div class="center">
+        <h2>{{name}}</h2>
+        <img src={{url}} />
+        <p>Released in: {{year}}</p>
+        <p>Length: {{length}} minutes</p>
+    </div>
+    {{/movies}}
+    </div>
+</body>
+</html>

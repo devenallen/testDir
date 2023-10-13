@@ -18,6 +18,7 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
 
 
 
@@ -44,6 +45,7 @@ public class WebController {
             ResultSet resultSet = preparedStatement.executeQuery();
             while (resultSet.next()) {
                 Movie movie = new Movie(resultSet.getString("Title"),
+                resultSet.getString("Poster"),
                 resultSet.getInt("MovieID"), 
                 resultSet.getInt("ReleaseYear"),
                 resultSet.getInt("MovieLength"));
@@ -77,38 +79,52 @@ public class WebController {
     }
 
     @PostMapping("/addMovie")
-    @RequestMapping
+    @ResponseBody
     public void addMovie(@RequestBody Movie movie) {
+        try {
+            Statement statement = connection.createStatement();
+            statement.executeUpdate("INSERT INTO Movie VALUES(" + movie.id + ", "  + movie.url + ", "+ movie.name + ", " + movie.year + ", " + movie.length);
+        }
+        catch(Exception e) {
+            System.out.println(e);
+        }
         movies.add(movie);
     }
 
     @PostMapping("/addCast")
-    @RequestMapping
-
-    public void addMovie(@RequestBody Cast cast) {
+    @ResponseBody
+    public void addCast(@RequestBody Cast cast) {
         casts.add(cast);
     }
 
     @PostMapping("/addReview")
-    @RequestMapping
-    public void addMovie(@RequestBody Review review) {
+    @ResponseBody
+    public void addReview(@RequestBody Review review) {
         reviews.add(review);
     }
 
     @GetMapping("/movies")
-    @RequestMapping
+    @ResponseBody
     public List<Movie> getMovies() {
         return movies;
     }
 
+    @GetMapping("/")
+    @ResponseBody
+    public ModelAndView homePage() {
+        ModelAndView hp = new ModelAndView("HomePage");
+        hp.addObject("movies", movies);
+        return hp;
+    }
+
     @GetMapping("/reviews")
-    @RequestMapping
+    @ResponseBody
     public List<Review> getReviews() {
         return reviews;
     }
 
     @GetMapping("/cast")
-    @RequestMapping
+    @ResponseBody
     public List<Cast> getCast() {
         return casts;
     }
