@@ -1,0 +1,22 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Signup</title>
+</head>
+<body>
+    <h2>Signup</h2>
+    
+    {{#error}}
+        <p style="color: red;">{{error}}</p>
+    {{/error}}
+    
+    <form action="/submitusername" method="POST">
+        <label for="username">Username:</label>
+        <input type="text" id="username" name="username"/>
+        <input type="submit" value="Sign Up"/>
+    </form>
+
+    <a href="/login">Already have an account? Login here.</a>
+</body>
+</html>

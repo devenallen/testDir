@@ -1,0 +1,33 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Add a review</title>
+</head>
+    <body>
+        {{#error}}
+        <p style="color: red;">{{error}}</p>
+        {{/error}}
+
+        <table>
+            <tr>
+                <th>Stars</th>
+                <th>UserID</th>
+                <th>MovieID</th>
+            </tr>
+            {{#reviews}}
+                <tr>
+                    <td>{{stars}}</td>
+                    <td>{{userID}}</td>
+                    <td>{{movieID}}</td>
+                </tr>
+            {{/reviews}}
+        </table>
+        <form action="/dynamic/submitform" method="POST">
+            <input type="text" name="stars"/>
+            <input type="text" name="userID"/>
+            <input type="text" name="movieID"/>
+            <input type="submit"/>
+        </form>
+    </body>
+</html>

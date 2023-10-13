@@ -19,6 +19,34 @@ public class Review {
         this.userID = userID;
     }
 
+    public Review() {
+
+    }
+
+    public void setStars(String stars) {
+        try {
+            this.stars = Integer.parseInt(stars);
+        } catch (NumberFormatException e) {
+            this.stars = 0;
+        }
+    }
+
+    public void setUserID(String userID) {
+        try {
+            this.userID = Integer.parseInt(userID);
+        } catch (NumberFormatException e) {
+            this.userID = 0;
+        }
+    }
+
+    public void setMovieID(String movieID) {
+        try {
+            this.movieID = Integer.parseInt(movieID);
+        } catch (NumberFormatException e) {
+            this.movieID = 0;
+        }
+    }
+
     public int getStars() {
         return this.stars;
     }
