@@ -13,6 +13,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.fasterxml.jackson.annotation.JsonCreator.Mode;
+
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -24,6 +26,7 @@ import java.sql.Statement;
 
 @Controller
 public class WebController {
+    int UserID;
     List <Movie> movies;
     List <Review> reviews;
     List <Cast> casts;
@@ -72,7 +75,7 @@ public class WebController {
                 resultSet.getInt("MovieID"));
                 casts.add(cast);
             }
-            connection.close();
+            // connection.close();
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -88,7 +91,6 @@ public class WebController {
         catch(Exception e) {
             System.out.println(e);
         }
-        movies.add(movie);
     }
 
     @PostMapping("/addCast")
@@ -127,5 +129,32 @@ public class WebController {
     @ResponseBody
     public List<Cast> getCast() {
         return casts;
+    }
+
+    @GetMapping("/login")
+    @ResponseBody
+    public ModelAndView login() {
+        ModelAndView mv = new ModelAndView("Login");
+        return mv;
+    }
+
+    @PostMapping("/addUser")
+    @ResponseBody
+    public ModelAndView addUser(@RequestBody String email) {
+        try {
+            String sql = "SELECT * FROM User WHERE Username='" + email +"'"; 
+            PreparedStatement preparedStatement = connection.prepareStatement(sql);
+            ResultSet resultSet = preparedStatement.executeQuery();
+            if (!resultSet.next()) {
+                Statement statement = connection.createStatement();
+                statement.executeUpdate("INSERT INTO User (Username) VALUES ( '" + email + "' )");
+                resultSet = preparedStatement.executeQuery();
+            }
+            UserID = resultSet.getInt("UserID");
+        }
+        catch(Exception e) {
+            System.out.println(e);
+        }
+        return new ModelAndView("redirect:/");
     }
 }

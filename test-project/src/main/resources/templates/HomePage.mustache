@@ -6,7 +6,7 @@
     <style>
         body {
             font-family: Arial, sans-serif;
-            background-color: #f4f4f4;
+            background-color: black;
             margin: 0;
             padding: 0;
         }
@@ -18,7 +18,13 @@
         }
         h1 {
             margin: 0;
-        }
+            color:aliceblue;
+            padding:1%;
+            background-color:#11194c;
+            border-radius: 10px;
+            width:fit-content;
+box-shadow: 5px 5px 10px 2px white;      
+  }
         nav {
             background-color: #444;
             text-align: center;
@@ -41,22 +47,67 @@
             margin: auto;
         }
         img {
-            width: 50%;
-            height: 80%;
+            width: 40%;
+            height: 40%;
             margin: auto;
         }
         .mainDiv {
             display: flex;
+            align-items:center;
+            
         }
         .center {
-            margin: auto;
+            width: 25%;
+            height: fit-content;
             border-radius: 20%;
             border-color: black;
+            border: solid;
+            background-color: rgb(240, 255, 255);
+            text-align: center;
+            padding: 2%;
+        }
+        .titleBar {
+            background-color:rgb(85, 93, 255);
+            padding:1%;
+            display:flex;
+        }
+        .center:hover {
+            z-index:1;
+            transform: scale(1.2);
+            cursor: pointer;
+        }
+        .menu {
+            margin: 0 2%;
+            text-align: center;
+            font-family: Arial, sans-serif;
+            font-size: 180%;
+            width: 200px;
+            color: aliceblue;
+            background-color: transparent;
+            border-color: transparent;
+            border-radius: 10px;
+                        text-decoration: none;
+
+        }
+        .menu:hover {
+            cursor: pointer;
+            box-shadow: 5px 5px 30px 10px inset rgb(255,255,255,0.5);
+        }
+        .menus {
+            padding-left: 25%;
+            display:flex;
         }
     </style>
 </head>
 <body>
-<div><h1>Movies</h1></div>
+<div class="titleBar">
+<h1>ScreenScore Central</h1>
+<div class="menus">
+<a class="menu" href="/">Home</a>
+<a class="menu" >My Reviews</a>
+<a class="menu" href="/login">Login/Sign-Up</a>
+</div>
+</div>
 <div class="mainDiv">
     {{#movies}}
     <div class="center">
