@@ -1,0 +1,18 @@
+For our extra credit, we used some information off of the IMDB Site.
+
+For Captain America: The First Avenger:
+https://www.imdb.com/title/tt0458339/?ref_=nv_sr_srsg_0_tt_8_nm_0_q_Captain%2520America
+
+For Grown Ups:
+https://www.imdb.com/title/tt1375670/?ref_=nv_sr_srsg_0_tt_8_nm_0_q_Grown%2520
+
+For Barbie:
+https://www.imdb.com/title/tt1517268/?ref_=nv_sr_srsg_1_tt_3_nm_4_q_Barbie
+
+We grabbed the following from the data set:
+- Movie title
+- Movie release year
+- Movie length (total minutes)
+- Top 3 cast member names (actor names)
+- We could not get access to the URL's of the images, so we searched for the movie posters on google. *NOTE* That the posters are not directly
+    pulled from the data set, but rather as a reference when searching on google

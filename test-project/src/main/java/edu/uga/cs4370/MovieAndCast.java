@@ -14,6 +14,6 @@ public class MovieAndCast {
         this.url = url;
         this.year = year;
         this.length = length;
-        this.actor = actor;
+        this.actor = Actor;
     }
 }

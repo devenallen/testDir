@@ -43,7 +43,7 @@ public class WebController {
         casts = new ArrayList<>();
         String jdbcUrl = "jdbc:mysql://localhost:33306/riggedDB";
         String username = "root";
-        String password = "bathinda";
+        String password = "mysqlpass"; // ENTER YOUR OWN PASSWORD HERE
 
         try {
             connection = DriverManager.getConnection(jdbcUrl, username, password);
@@ -231,14 +231,14 @@ public class WebController {
 
     @PostMapping("/addUser")
     @ResponseBody
-    public ModelAndView addUser(@RequestBody String email) {
+    public ModelAndView addUser(@RequestBody String username) {
         try {
-            String sql = "SELECT * FROM User WHERE Username='" + email +"'"; 
+            String sql = "SELECT * FROM User WHERE Username='" + username +"'"; 
             PreparedStatement preparedStatement = connection.prepareStatement(sql);
             ResultSet resultSet = preparedStatement.executeQuery();
             if (!resultSet.next()) {
                 Statement statement = connection.createStatement();
-                statement.executeUpdate("INSERT INTO User (Username) VALUES ( '" + email + "' )");
+                statement.executeUpdate("INSERT INTO User (Username) VALUES ( '" + username + "' )");
                 resultSet = preparedStatement.executeQuery();
             }
             UserID = resultSet.getInt("UserID");
