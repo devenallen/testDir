@@ -1,7 +1,7 @@
 -- Insert values into user (all of the project members)
 INSERT INTO User (UserID, Username) VALUES
 (1, 'DevenAllen'),
-(2, 'PreetamJain');
+(2, 'PreetamJain'),
 (3, 'SanjanaSatish'),
 (4, 'ArjunGupta');
 
@@ -31,3 +31,4 @@ INSERT INTO Review (StarCount, MovieID, UserID) VALUES
 (5, 101, 1), -- A review with 5 stars for Movie 1 by User 1
 (4, 102, 2), -- A review with 4 stars for Movie 2 by User 2
 (3, 100, 3); -- A review with 3 stars for Movie 3 by User 3
+
