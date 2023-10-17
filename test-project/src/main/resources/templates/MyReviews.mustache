@@ -2,8 +2,12 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>Signup</title>
+    <title>My Reviews</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <style>
+    .checked {
+        color: orange;
+    }
     .menu {
             margin: 0 2%;
             text-align: center;
@@ -45,7 +49,19 @@ box-shadow: 5px 5px 10px 2px white;
             padding:1%;
             display:flex;
         }
+        .inline {
+            display:flex;
+        }
     </style>
+    <script>
+        function handleClick(id) {
+            var number = id; // Replace with the desired integer value
+            var url = '/removeReview?id=' + id;
+            var xmlHttp = new XMLHttpRequest();
+            xmlHttp.open("POST", url, true); // true for asynchronous
+            xmlHttp.send(null);
+        }
+    </script>
 </head>
 <body>
 <div class="titleBar">
@@ -56,16 +72,15 @@ box-shadow: 5px 5px 10px 2px white;
 <a class="menu" href="/login">Login/Sign-Up</a>
 </div>
 </div>
-    <h2>Signup</h2>
-    
-    {{#error}}
-        <p style="color: red;">{{error}}</p>
-    {{/error}}
-    
-    <form action="/addUser" method="POST">
-        <label for="username">Username:</label>
-        <input type="text" id="username" name="username"/>
-        <input type="submit" value="Login/Sign-Up"/>
-    </form>
+    <div class="reviews">
+    {{#review}}
+    <div class="inline">
+        <h2>{{title}}</h2>
+        
+        <h2>: {{stars}} stars</h2>
+        <button onClick="handleClick('{{id}}')">X</button>
+    </div>
+    {{/review}}
+    </div>
 </body>
 </html>

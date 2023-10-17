@@ -56,16 +56,23 @@ box-shadow: 5px 5px 10px 2px white;
 <a class="menu" href="/login">Login/Sign-Up</a>
 </div>
 </div>
-    <h2>Signup</h2>
+    <div>
+    {{#mac}}
+        <div class="center">
+        <h2>{{name}}</h2>
+        <img src={{url}} />
+        <p>Released in: {{year}}</p>
+        <p>Length: {{length}} minutes</p>
+    </div>
+        
+
+{{/mac}}
+<div class="cast">
+        {{#actors}}
+        <h3>{{actors}}</h3>
+        {{/actors}}
+        </div>
     
-    {{#error}}
-        <p style="color: red;">{{error}}</p>
-    {{/error}}
-    
-    <form action="/addUser" method="POST">
-        <label for="username">Username:</label>
-        <input type="text" id="username" name="username"/>
-        <input type="submit" value="Login/Sign-Up"/>
-    </form>
+    </div>
 </body>
 </html>

@@ -98,19 +98,29 @@ box-shadow: 5px 5px 10px 2px white;
             display:flex;
         }
     </style>
+    <script>
+        function handleClick(id) {
+            var number = id; // Replace with the desired integer value
+    var url = '/GetMovie?id=' + number;
+    var xmlHttp = new XMLHttpRequest();
+    xmlHttp.open("POST", url, true); // true for asynchronous
+    xmlHttp.send(null);
+    setTimeout(() => {window.location.href = "http://localhost:8080/PerMovie"}, 1000);
+        }
+    </script>
 </head>
 <body>
 <div class="titleBar">
 <h1>ScreenScore Central</h1>
 <div class="menus">
 <a class="menu" href="/">Home</a>
-<a class="menu" >My Reviews</a>
+<a class="menu" href="/MyReviews" >My Reviews</a>
 <a class="menu" href="/login">Login/Sign-Up</a>
 </div>
 </div>
 <div class="mainDiv">
     {{#movies}}
-    <div class="center">
+    <div class="center" onClick="handleClick('{{id}}')">
         <h2>{{name}}</h2>
         <img src={{url}} />
         <p>Released in: {{year}}</p>
