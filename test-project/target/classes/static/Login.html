@@ -1,0 +1,51 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Signup</title>
+    <style>
+    .menu {
+            margin: 0 2%;
+            text-align: center;
+            font-family: Arial, sans-serif;
+            font-size: 180%;
+            width: 200px;
+            color: aliceblue;
+            background-color: transparent;
+            border-color: transparent;
+            border-radius: 10px;
+        }
+        .menu:hover {
+            cursor: pointer;
+            box-shadow: 5px 5px 30px 10px inset rgb(255,255,255,0.5);
+        }
+        .menus {
+            padding-left: 25%;
+            display:flex;
+        }
+    </style>
+</head>
+<body>
+<div class="titleBar">
+<h1>ScreenScore Central</h1>
+<div class="menus">
+<a class="menu" href="">Home</a>
+<a class="menu">My Reviews</a>
+<a class="menu">Login/Sign-Up</a>
+</div>
+</div>
+    <h2>Signup</h2>
+    
+    {{#error}}
+        <p style="color: red;">{{error}}</p>
+    {{/error}}
+    
+    <form action="/submitusername" method="POST">
+        <label for="username">Username:</label>
+        <input type="text" id="username" name="username"/>
+        <input type="submit" value="Sign Up"/>
+    </form>
+
+    <a href="/login">Already have an account? Login here.</a>
+</body>
+</html>

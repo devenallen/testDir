@@ -1,0 +1,78 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Signup</title>
+    <style>
+    .menu {
+            margin: 0 2%;
+            text-align: center;
+            font-family: Arial, sans-serif;
+            font-size: 180%;
+            width: 200px;
+            color: aliceblue;
+            background-color: transparent;
+            border-color: transparent;
+            border-radius: 10px;
+            text-decoration: none;
+        }
+        body {
+            font-family: Arial, sans-serif;
+            background-color: black;
+            margin: 0;
+            padding: 0;
+            color: white;
+        }
+        .menu:hover {
+            cursor: pointer;
+            box-shadow: 5px 5px 30px 10px inset rgb(255,255,255,0.5);
+        }
+        h1 {
+            margin: 0;
+            color:aliceblue;
+            padding:1%;
+            background-color:#11194c;
+            border-radius: 10px;
+            width:fit-content;
+box-shadow: 5px 5px 10px 2px white;      
+  }
+        .menus {
+            padding-left: 25%;
+            display:flex;
+        }
+        .titleBar {
+            background-color:rgb(85, 93, 255);
+            padding:1%;
+            display:flex;
+        }
+    </style>
+</head>
+<body>
+<div class="titleBar">
+<h1>ScreenScore Central</h1>
+<div class="menus">
+<a class="menu" href="/">Home</a>
+<a class="menu" href="/MyReviews" >My Reviews</a>
+<a class="menu" href="/login">Login/Sign-Up</a>
+</div>
+</div>
+    <div>
+    {{#mac}}
+        <div class="center">
+        <h2>{{name}}</h2>
+        <img src={{url}} />
+        <p>Released in: {{year}}</p>
+        <p>Length: {{length}} minutes</p>
+    </div>
+        
+
+{{/mac}}
+<div class="cast">
+        {{#actors}}
+        <h3>{{actors}}</h3>
+        {{/actors}}
+        </div>
+    
+    </div>
+</body>
+</html>

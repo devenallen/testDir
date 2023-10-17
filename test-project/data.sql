@@ -28,6 +28,7 @@ INSERT INTO Cast (ActorName, MovieID) VALUES
 
 -- Insert sample reviews into the Review table
 INSERT INTO Review (StarCount, MovieID, UserID) VALUES
-(5, 1, 1), -- A review with 5 stars for Movie 1 by User 1
-(4, 2, 2), -- A review with 4 stars for Movie 2 by User 2
-(3, 3, 3); -- A review with 3 stars for Movie 3 by User 3
+(5, 101, 1), -- A review with 5 stars for Movie 1 by User 1
+(4, 102, 2), -- A review with 4 stars for Movie 2 by User 2
+(3, 100, 3); -- A review with 3 stars for Movie 3 by User 3
+
